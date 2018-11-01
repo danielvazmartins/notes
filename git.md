@@ -82,3 +82,9 @@ git remote remove origin
 git remote add origin https://git.novoservidor.com.br/projetos/projeto-web
 git branch --set-upstream-to=origin/master master
 git push --set-upstream origin master
+
+# Adicionar outro servidor remoto
+git remote -v
+git remote add backup https://user@bitbucket.org/user/remote.git
+git push orign master
+git push backup master

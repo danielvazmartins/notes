@@ -1,5 +1,8 @@
 # Elasticsearch
 
+# Iniciar no Windows habilitando CORS para qualquer origem
+elasticsearch.exe -E http.cors.enabled=true -E http.cors.allow-origin="*" 
+
 # Acessar o kopf
 http://localhost:9200/_plugin/kopf/#!/rest
 
