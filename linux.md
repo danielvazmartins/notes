@@ -1,10 +1,10 @@
 # Executar o logrotate manualmente
 logrotate --force $CONFIG_FILE
 
-# Verificar vers„o do ubuntu
+# Verificar versão do ubuntu
 lsb_release -a
  
-# Gerar Certificado
+# Gerar requisição de certificado
 openssl genrsa -des3 -out exchange.vm10.com.br.key 2048
 openssl req -new -key exchange.vm10.com.br.key -out exchange.vm10.com.br.csr
  
@@ -43,7 +43,7 @@ openssl req -noout -modulus -in m.cdiscount.com.br.csr | openssl md5
 #Monitorar fila do postfix
 watch -n1 'postqueue -p |tail -n 1'
  
-# Gera chaves e copia para o host de destino
+# Gera chaves e copiar para o host de destino
 ssh-keygen -t rsa
 ssh-copy-id -i /root/.ssh/id_rsa.pub root@10.14.78.132
 eval `ssh-agent`

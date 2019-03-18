@@ -55,6 +55,12 @@ git fetch
 # Ver todas as branch do servidor
 git branch --remote
 
+# Remover uma branch local
+git branch -d nome-branch
+
+# Remover uma branch remota
+git push origin --delete nome-branch
+
 # Ver status do projeto
 git status
 
