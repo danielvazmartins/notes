@@ -47,7 +47,8 @@ git checkout novabranch
 git checkout -b novabranch2
 
 # Jogando uma branch local no servidor
-git push --set-upstream origin produto-api
+git push --set-upstream origin nome-branch
+git push -u origin nome-branch
 
 # Atualizar estrutura de branchs
 git fetch

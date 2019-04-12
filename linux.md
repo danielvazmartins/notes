@@ -1,9 +1,11 @@
-# Executar o logrotate manualmente
-logrotate --force $CONFIG_FILE
-
+# Comandos úteis
+```bash
 # Verificar versão do ubuntu
 lsb_release -a
+```
  
+# Certificado digital
+```bash
 # Gerar requisição de certificado
 openssl genrsa -des3 -out exchange.vm10.com.br.key 2048
 openssl req -new -key exchange.vm10.com.br.key -out exchange.vm10.com.br.csr
@@ -39,15 +41,51 @@ openssl rsa -in m.extra.com.br.key.pass -out m.extra.com.br.key
 openssl x509 -noout -modulus -in m.cdiscount.com.br.crt | openssl md5
 openssl rsa -noout -modulus -in m.cdiscount.com.br.key | openssl md5
 openssl req -noout -modulus -in m.cdiscount.com.br.csr | openssl md5
- 
-#Monitorar fila do postfix
-watch -n1 'postqueue -p |tail -n 1'
- 
-# Gera chaves e copiar para o host de destino
+```
+
+# SSH
+```bash
+# Gerar chaves no linux e copiar para o host de destino
 ssh-keygen -t rsa
 ssh-copy-id -i /root/.ssh/id_rsa.pub root@10.14.78.132
 eval `ssh-agent`
 ssh-add
- 
+
+# Gerar chaves no Windows e salvar no host de destino
+- Utilizar o puttygen para gerar o par de chaves
+C:\Program Files\PuTTY\puttygen.exe
+- Clicar em generate para gerar as chaves
+- Copiar a public key gerada na tela (ssh-rsa XXXXX...)
+- Adicionar a public key no arquivo ~/.ssh/authorized_keys do host
+- Salvar a private key (nome-rsa-private.ppk)
+- Utilizar a private key no putty para acessar o host sem senha
+```
+
+# Adicionando Swap no Ubuntu 16.04
+```bash
+swapon --show
+fallocate -l 1G /swapfile
+chmod 600 swapfile
+mkswap /swapfile
+swapon /swapfile
+swapon --show
+
+# Fonte
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+```
+
+
+# Monitorar fila do postfix
+watch -n1 'postqueue -p |tail -n 1'
+
+# Executar o logrotate manualmente
+logrotate --force $CONFIG_FILE
+
 # Adicionar biblioteca no classpath do JAVA
 export CLASSPATH=/usr/local/jetty-6.1.19/lib/mail-1.4.jar:.
+
+# Pacotes úteis
+netcat-openbsd - TCP/IP swiss army knife
+tcpdump - command-line network traffic analyzer
+traceroute - Traces the route taken by packets over an IPv4/IPv6 network
+mtr - Full screen ncurses and X11 traceroute tool
