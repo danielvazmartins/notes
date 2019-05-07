@@ -69,6 +69,8 @@ chmod 600 swapfile
 mkswap /swapfile
 swapon /swapfile
 swapon --show
+sysctl vm.swappiness=10
+sysctl vm.vfs_cache_pressure=50
 
 # Fonte
 https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
