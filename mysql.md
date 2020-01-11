@@ -50,6 +50,7 @@ grant all on ispvm.* to isp@'localhost';
 flush privileges;
 # Visualisar os usuários do banco
 select * from mysql.user;
+select Host, User from mysql.user;
  
 # Exportar apenas o conteudo de uma tabela
 mysqldump pushec --skip-add-drop-table --no-create-info --tables apps -p > pushec.bkp
