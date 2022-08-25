@@ -100,7 +100,7 @@ git push backup master
 git checkout -- arquivo
 
 # Desfazer alterações no stage mas não comitadas
-git reset HEAD
+git reset HEAD arquivo
 
 # Desfazer alterações commitadas
 git revert COMMITID
