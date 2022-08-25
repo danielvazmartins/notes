@@ -95,3 +95,12 @@ git remote -v
 git remote add backup https://user@bitbucket.org/user/remote.git
 git push orign master
 git push backup master
+
+# Desfazer alterações que não foram adicionadas ao stage
+git checkout -- arquivo
+
+# Desfazer alterações no stage mas não comitadas
+git reset HEAD
+
+# Desfazer alterações commitadas
+git revert COMMITID
