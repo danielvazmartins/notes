@@ -104,3 +104,6 @@ git reset HEAD arquivo
 
 # Desfazer alterações commitadas
 git revert COMMITID
+
+# Fazer commit vazio
+git commit --allow-empty -m "commit vazio"
