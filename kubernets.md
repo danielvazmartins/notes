@@ -9,6 +9,6 @@
 - secret(s)
 
 # Sintaxe GET
-kubectl get OBJECTO
+kubectl get OBJETO
 kubectl get projects 
 kubectl get project PROJECT_NAME
