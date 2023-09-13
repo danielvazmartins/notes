@@ -113,3 +113,27 @@ git revert COMMITID
 
 # Fazer commit vazio
 git commit --allow-empty -m "commit vazio"
+
+# Salvando as alterações temporariamente
+git stash
+git stash list
+git pop //Traz de volta as alterações salvas
+
+# Visualizar o estado de algum commit
+git checkout COMMITID
+
+# Ver os logs (histórico de commits)
+git log
+git log --oneline
+git log -p // Ver as modificações de cada commit
+
+# Para ver mais opções do 'git log'
+https://devhints.io/git-log
+
+# Ver alterações
+git diff
+git diff branch1..branch2 // Ver alterações entre duas branches
+git diff COMMITHASH1..COMMITHASH2 //Ver todas diferenças de um commit até outro
+
+# Unir commits
+git rebase -i HEAD~N
