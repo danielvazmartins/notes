@@ -9,6 +9,9 @@ git config --global user.email "danielvazmartins@gmail.com"
 git config user.name "Daniel Vaz Villalobos Martins"
 git config user.email "danielvazmartins@gmail.com"
 
+# Configurando o git para o modo simples
+git config --global push.default simple
+
 # Baixar um projeto
 git clone ssh://usuario@servidor:porta/path
 git clone https://github.com/danielvazmartins/notes
@@ -17,22 +20,22 @@ git clone https://github.com/danielvazmartins/notes
 git remote
 git remote -v
 
+# Criar um novo repositório (local - working dir)
+git init
+
+# Criar um novo repositório (no servidor - shared)
+git init --bare --shared=group nome-do-repositório
+Ex.: git init --bare --shared=group avisos-ios
+
 # Commit
 git add .
 git commit
 git push origin master
 
-# Criar um novo repositório
-git init --bare --shared=group nome-do-repositório
-Ex.: git init --bare --shared=group avisos-ios
-
 # Remover arquivo do servidor remoto
 git rm --cached ARQUIVO
 git rm -r --cached PASTA
 git commit -a -m "A file was deleted"
-
-# Configurando o git para o modo simples
-git config --global push.default simple
 
 # Ver todas branchs
 git branch
@@ -40,11 +43,14 @@ git branch
 # Criar uma branch nova
 git branch novabranch
 
-# Alterar a branch
+# Alterar para uma branch
 git checkout novabranch
 
 # Criar uma nova branch e já alterar para ela
 git checkout -b novabranch2
+
+# Renomear uma branch
+gti branch -m oldbranch newbranch
 
 # Jogando uma branch local no servidor
 git push --set-upstream origin nome-branch
@@ -95,3 +101,39 @@ git remote -v
 git remote add backup https://user@bitbucket.org/user/remote.git
 git push orign master
 git push backup master
+
+# Desfazer alterações que não foram adicionadas ao stage
+git checkout -- arquivo
+
+# Desfazer alterações no stage mas não comitadas
+git reset HEAD arquivo
+
+# Desfazer alterações commitadas
+git revert COMMITID
+
+# Fazer commit vazio
+git commit --allow-empty -m "commit vazio"
+
+# Salvando as alterações temporariamente
+git stash
+git stash list
+git pop //Traz de volta as alterações salvas
+
+# Visualizar o estado de algum commit
+git checkout COMMITID
+
+# Ver os logs (histórico de commits)
+git log
+git log --oneline
+git log -p // Ver as modificações de cada commit
+
+# Para ver mais opções do 'git log'
+https://devhints.io/git-log
+
+# Ver alterações
+git diff
+git diff branch1..branch2 // Ver alterações entre duas branches
+git diff COMMITHASH1..COMMITHASH2 //Ver todas diferenças de um commit até outro
+
+# Unir commits
+git rebase -i HEAD~N

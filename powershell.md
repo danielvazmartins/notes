@@ -1,4 +1,4 @@
-#omandos PowerShell
+# Comandos PowerShell
 
 #Combinando a saida de dois comandos com o select
 [PS] C:\>Get-Mailbox daniel.martins@viewit.com.br | select PrimarySmtpAddress, @{n="Status"; e={Get-MailboxStatistics $_.name |select StorageLimitStatus}}
