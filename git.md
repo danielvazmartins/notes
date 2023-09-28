@@ -1,11 +1,13 @@
-# Git
+# 🔖 Git
 
+```bash
 # Configurando nome e e-mail globalmente
 # Obs.: É preciso configurar o email corretamente para aparecer nas contribuições do github
+
 git config --global user.name "Daniel Vaz Villalobos Martins"
 git config --global user.email "danielvazmartins@gmail.com"
 
-# Configurar nome e e-mail por projeto
+## Configurar nome e e-mail por projeto
 git config user.name "Daniel Vaz Villalobos Martins"
 git config user.email "danielvazmartins@gmail.com"
 
@@ -137,3 +139,4 @@ git diff COMMITHASH1..COMMITHASH2 //Ver todas diferenças de um commit até outr
 
 # Unir commits
 git rebase -i HEAD~N
+``````
