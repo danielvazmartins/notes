@@ -1,3 +1,4 @@
+![Alt text](cover.png)
 # Ambiente de desenvolvimento Java e SpringBoot com VsCode
 
 Quem está estudando ou quer iniciar um projeto em Java, precisa antes de tudo ter um ambiente de desenvolvimento preparado para rodar seus projetos. Principalmente para quem está começanco a estudar, pode surgir muitas dúvidas, justamente por ter várias alternativas de IDE, plugins e diversas versões do Java. Até mesmo um simples "Hello World" pode se tornar complicado.
