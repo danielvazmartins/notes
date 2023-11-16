@@ -72,6 +72,6 @@ docker-compose up -d
 apt-get update
 apt-get install net-tools (netstat)
 apt-get install iputils-ping
-Apt-get install mysql-client
+apt-get install mysql-client
 apt-get install less
 apt-get install wget
