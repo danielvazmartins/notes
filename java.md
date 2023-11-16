@@ -24,21 +24,28 @@ java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 [Spring Initializr](https://start.spring.io/) - Gerar projeto SprintBook com as dependências selecionadas. Ou utilizar o Initializr através do VSCode com o atalho CTRL+SHIT+P e escolher a "Spring Initializr: Create a Maven Project..."
 
+[Commom Application properties](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/common-application-properties.html) - Tabela de referência com as propriedades de configuração do `application.properties`
+
 ## Dependências
 
 [Spring Web](https://spring.io/guides/gs/rest-service/) - Criar aplicações RESTful. Utiliza o Apache Tomcat embutido para rodar a aplicação
 
 [Spring Boot Dev Tools]() - Detecta alterações no projeto e faz o reload automaticamente
 
-[Spring Data JPA]() - Java Persistence API. Faz o acesso ao banco de dados, utilizando métodos facilitadores, usando o Spring Data e o Hibernate
+[Spring Data JPA]() - Java Persistence API. Faz o acesso ao banco de dados, utilizando métodos facilitadores, usando o Spring Data e o Hibernate. Utilizado para bancos de dados relacionais.
 
 [Spring for Apache Kafka]() - Integração com o serviço de streaming do Kafka
+
+```java
+// Habilitar o Kafka na classe principal
+@EnableKafka
+```
 
 [Lombok](https://projectlombok.org/) - Dependência para criar automaticamente os getters e setters e outras facilidades
 
 ```java
-/* annotations */
-@Data // Cria os getters e setters da classe
+// Cria os getters e setters de uma classe/model
+@Data
 ```
 
 [SpringDoc OpenApi](https://springdoc.org/)
@@ -73,3 +80,6 @@ spring.h2.console.enabled=true
 # Console 
 http://localhost:8080/h2-console
  ```
+
+ [OpenFeign]()
+ 
