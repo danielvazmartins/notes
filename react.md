@@ -32,13 +32,17 @@ npm install react-router-dom
 * Outlet
 * Link
 * NavLink
+
+## Hooks
 * useLocation
 * useParams
+* useNavigate
 
 ## Bibliotecas Úteis
 * [React Icons](https://react-icons.github.io/react-icons)
 * [Hex to RGBA](https://github.com/misund/hex-to-rgba)
 * [UUID](https://github.com/uuidjs/uuid)
+* [React Markdown](https://github.com/remarkjs/react-markdown)
 
 ## Ferramentas auxiliares
 * [Json Server](https://github.com/typicode/json-server)
