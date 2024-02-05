@@ -33,10 +33,14 @@ npm install react-router-dom
 * Link
 * NavLink
 
+## APIs
+* memo
+
 ## Hooks
 * useLocation
 * useParams
 * useNavigate
+* useCallback
 
 ## Bibliotecas Úteis
 * [React Icons](https://react-icons.github.io/react-icons)
