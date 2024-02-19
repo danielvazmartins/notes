@@ -94,7 +94,7 @@ git add arquivo
 # Fazer commit das alterações do stage
 git commit -m "Alteração do arquivo"
 
-# Fazer o merge de uma branch para o master
+# Fazer o merge de uma branch para a branch ativa
 git merge nomedabranch
 
 # Unir commits
