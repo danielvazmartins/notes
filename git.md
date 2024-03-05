@@ -14,7 +14,7 @@ git config user.email "danielvazmartins@gmail.com"
 
 # Configurando o git para o modo simples
 git config --global push.default simple
-``````
+```
 
 ## Repositórios
 ```bash
@@ -51,8 +51,8 @@ git push backup master
 ```bash
 # Salvando e subindo
 git add .
-git commit
-git push origin master
+git commit -m "comentarios"
+git push origin [nome-da-branch]
 
 # Ver todas branchs
 git branch
@@ -69,9 +69,16 @@ git checkout -b novabranch2
 # Renomear uma branch
 gti branch -m oldbranch newbranch
 
-# Jogando uma branch local no servidor
+# Vinculando a branch local com a remota
+git branch --set-upstream-to=nome-da-branch-remote (Ex.: origin/master, origin/feature/branch)
+git branch -u origin nome-da-branch
+
+# Fazendo o push e vinculando a branch local com a remota
 git push --set-upstream origin nome-branch
 git push -u origin nome-branch
+
+# Fazendo o push quando a branch remota já está vinculada
+git push
 
 # Atualizar estrutura de branchs
 git fetch
@@ -94,8 +101,11 @@ git add arquivo
 # Fazer commit das alterações do stage
 git commit -m "Alteração do arquivo"
 
+# Altera a mensagem do último commit
+git commit --amend -m "Nova mensagem do último commit"
+
 # Fazer o merge de uma branch para a branch ativa
-git merge nomedabranch
+git merge nome-da-branch
 
 # Unir commits
 git rebase -i HEAD~N
@@ -106,7 +116,8 @@ git commit --allow-empty -m "commit vazio"
 # Salvando as alterações temporariamente
 git stash
 git stash list
-git pop //Traz de volta as alterações salvas
+git stash pop [stash] // Traz de volta as alterações salvas
+git stash drop [stash] // Remove um stash da lista
 
 # Visualizar o estado de algum commit
 git checkout COMMITID
@@ -119,29 +130,49 @@ git commit -a -m "A file was deleted"
 
 ## Desfazendo alterações
 ```bash
-# Desfazer alterações que não foram adicionadas ao stage
-git checkout -- arquivo
+# Removendo arquivos não trackeados
+git clean -f
 
-# Desfazer alterações no stage mas não comitadas
+# Removendo arquivos e diretórios não trackeados
+git clean -f -d
+
+# Desfazer alterações em arquivos no working dir
+git checkout arquivo
+git checkout .
+git restore arquivo
+git restore .
+
+# Voltando arquivo de staged para o working dir
+git reset arquivo
+git reset .
 git reset HEAD arquivo
+
+# Volta para um commit (cria um novo commit desfazendo a ação do anterior) e joga arquivos de commits posteriores no working dir (default)
+# Não desfaz o commit remoto
+git reset --mixed COMMITID
+git reset COMMITID
+
+# Desfaz N commits (cria uma commit para cada commit desfeito)
+git reset HEAD~N
 
 # Volta para um commit e joga arquivos de commits posteriores no stage
 git reset --soft COMMITID
 
-# Volta para um commit e joga arquivos de commits posteriores no working dir
-git reset --mixed COMMITID
-
-# Desfazer as alterações locais
-git reset --hard
-
-# Voltar para um commit e apaga commits posteriores
+# Voltar para um commit e apaga os arquivos e alterações dos commits posteriores
 git reset --hard COMMITID
 
-# Desfazer alterações commitadas
+# Desfaz todas alterações locais, de stage e do working dir
+git reset --hard
+
+# Git reset desfaz apenas os commits locais, se já tiver no servidor é preciso forçar o push
+git push --force
+
+# Desfazer alterações commitadas criando um novo commit (inclusive na branch remota)
 git revert COMMITID
+git revert HEAD
 
 # Voltar N posições de commit (rollback)
-git revert -n HEAD~2..HEAD
+? git revert -n HEAD~2..HEAD
 ``` 
 
 ## Ver alterações e logs
@@ -149,6 +180,7 @@ git revert -n HEAD~2..HEAD
 # Ver os logs (histórico de commits)
 git log
 git log --oneline
+git log --decorate --oneline --graph --all
 git log -p // Ver as modificações de cada commit
 
 # Para ver mais opções do 'git log'
