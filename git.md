@@ -113,12 +113,6 @@ git rebase -i HEAD~N
 # Fazer commit vazio
 git commit --allow-empty -m "commit vazio"
 
-# Salvando as alterações temporariamente
-git stash
-git stash list
-git stash pop [stash] // Traz de volta as alterações salvas
-git stash drop [stash] // Remove um stash da lista
-
 # Visualizar o estado de algum commit
 git checkout COMMITID
 
@@ -126,6 +120,27 @@ git checkout COMMITID
 git rm --cached ARQUIVO
 git rm -r --cached PASTA
 git commit -a -m "A file was deleted"
+
+# Copiando um commit de uma branch para outra
+git cherry-pick COMMITID
+```
+
+## Stash - Trabalhando com arquivos ou alterações temporárias
+```bash
+# Salvando as alterações temporariamente (WIP)
+git stash
+
+# Salva as alterações na lista de stash especificando uma mensagem personalizada
+git stash push -m "MESSAGE"
+
+# Vendo lista de stash salvas
+git stash list
+
+// Traz de volta um stash salvo, se não especificar o stashId então retorna a última
+git stash pop [stash] 
+
+// Remove um stash da lista, se não especificar o stashId então remove o último
+git stash drop [stash]
 ```
 
 ## Desfazendo alterações
@@ -182,6 +197,8 @@ git log
 git log --oneline
 git log --decorate --oneline --graph --all
 git log -p // Ver as modificações de cada commit
+git log -p COMMIT ID // Ver as modificações de cada commit a partir do commit passado
+git show COMMITID // Ver as modificações de um únido commit
 
 # Para ver mais opções do 'git log'
 https://devhints.io/git-log
